@@ -1,0 +1,11 @@
+---
+description: when fixing a bug in the application
+---
+
+1. reproduce the bug using playright mcp
+2. let me know why the bug is happening
+3. suggest at least 1-3 options to fix it
+4. wait for my response before applying the fix
+5. after i chose the option apply the fix
+6. make sure the bug is fixed using playright mcp
+7. make sure typescipt and lint pass after applying the fix

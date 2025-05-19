@@ -1,0 +1,40 @@
+---
+description: When developing React components 
+globs: 
+alwaysApply: false
+---
+# React Component Guidelines
+
+## Component Design
+
+-   **Small and Focused:** Components should be small and have a single responsibility. If a component does too many things, consider breaking it down into smaller, more manageable sub-components.
+-   **Modularity:** Design components to be modular and reusable. They should be self-contained and not overly reliant on the specific context in which they are used.
+-   **Props for Data, Callbacks for Actions:** Pass data down to components via props. Use callback functions (also passed via props) for components to communicate actions or changes back up to their parents.
+
+## File Structure
+
+-   **One Component Per File (Generally):** Aim to have one React component per file. This improves readability and makes it easier to find and manage components.
+    -   File names should clearly reflect the component name (e.g., `UserProfile.jsx`, `Button.tsx`).
+-   **Keep Files Small:** Small files are easier to understand, test, and maintain. If a component file becomes too large, it might be an indication that the component itself is doing too much and should be refactored.
+-   **Colocation (Optional but Recommended):**
+    -   Consider colocating closely related files, such as a component's styles (`UserProfile.module.css`) or tests (`UserProfile.test.js`), in the same directory as the component file.
+    -   Example:
+        ```
+        components/
+        └── UserProfile/
+            ├── UserProfile.jsx
+            ├── UserProfile.module.css
+            └── UserProfile.test.js
+        ```
+
+## State Management
+
+-   **Local State First:** Prefer using local component state (e.g., `useState` hook) for state that is only relevant to that component and its children.
+-   **Lift State Up:** When multiple components need to share or react to the same state, lift that state up to their closest common ancestor.
+-   **Context/Redux for Global State:** For application-wide state, consider using React Context or a state management library like Redux or Zustand, but only when necessary to avoid premature complexity.
+
+## General Best Practices
+
+-   **Clear Naming:** Use clear and descriptive names for components, props, state variables, and functions.
+-   **PropTypes/TypeScript:** Use PropTypes (for JavaScript) or TypeScript to define the expected types for component props. This helps catch errors early and improves code maintainability.
+-   **Pure Components/Memoization:** Optimize performance by using `React.memo` for functional components or `PureComponent` for class components where appropriate, especially for components that re-render often with the same props.
