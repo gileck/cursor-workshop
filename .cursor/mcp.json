@@ -1,0 +1,17 @@
+{
+    "mcpServers": {
+      "playwright mcp": {
+        "command": "npx",
+        "args": ["@playwright/mcp@latest"]
+      },
+      "mermaid": {
+        "command": "npx",
+        "args": [
+          "-y @peng-shawn/mermaid-mcp-server"
+        ],
+        "env": {
+          "PUPPETEER_EXECUTABLE_PATH": "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
+        }
+      }
+    }
+  }
