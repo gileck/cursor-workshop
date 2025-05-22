@@ -13,16 +13,46 @@ export const TodoList: React.FC<TodoListProps> = ({ todos, onToggle, onDelete })
     return <p className="empty-message">No todos yet. Add one to get started!</p>;
   }
 
+  // Separate active and completed todos
+  const activeTodos = todos.filter(todo => !todo.completed);
+  const completedTodos = todos.filter(todo => todo.completed);
+
   return (
-    <ul className="todo-list">
-      {todos.map(todo => (
-        <TodoItem 
-          key={todo.id} 
-          todo={todo} 
-          onToggle={onToggle} 
-          onDelete={onDelete} 
-        />
-      ))}
-    </ul>
+    <div className="todo-lists-container">
+      {/* Active todos section */}
+      <div className="todo-section">
+        {activeTodos.length > 0 ? (
+          <ul className="todo-list">
+            {activeTodos.map(todo => (
+              <TodoItem 
+                key={todo.id} 
+                todo={todo} 
+                onToggle={onToggle} 
+                onDelete={onDelete} 
+              />
+            ))}
+          </ul>
+        ) : (
+          <p className="empty-message">No active todos. Add one to get started!</p>
+        )}
+      </div>
+
+      {/* Completed todos section */}
+      {completedTodos.length > 0 && (
+        <div className="todo-section completed-section">
+          <h2 className="section-title">Completed</h2>
+          <ul className="todo-list">
+            {completedTodos.map(todo => (
+              <TodoItem 
+                key={todo.id} 
+                todo={todo} 
+                onToggle={onToggle} 
+                onDelete={onDelete} 
+              />
+            ))}
+          </ul>
+        </div>
+      )}
+    </div>
   );
 };

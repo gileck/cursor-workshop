@@ -41,7 +41,7 @@ const TodoApp: React.FC = () => {
   const toggleTodo = (id: string) => {
     setTodos(prevTodos =>
       prevTodos.map(todo =>
-        todo.id === id ? { ...todo, done: !todo.completed } : todo
+        todo.id === id ? { ...todo, completed: !todo.completed } : todo
       )
     );
   };

@@ -108,3 +108,28 @@
   padding: 20px 0;
   font-style: italic;
 }
+
+/* New styles for todo sections */
+.todoApp :global(.todo-lists-container) {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.todoApp :global(.todo-section) {
+  background-color: #fff;
+  border-radius: 4px;
+}
+
+.todoApp :global(.completed-section) {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px dashed #ddd;
+}
+
+.todoApp :global(.section-title) {
+  font-size: 18px;
+  margin: 0 0 10px 0;
+  color: #666;
+  font-weight: 500;
+}
